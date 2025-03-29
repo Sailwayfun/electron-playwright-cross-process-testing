@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayWright Cross Process Test-AppA</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <script>
+    const { spawn } = require("node:child_process");
+    const path = require("node:path");
+
+    window.nodeRequire = require;
+
+    delete window.require;
+    delete window.exports;
+    delete window.module;
+  </script>
+  <body>
+    <div class="container">
+      <button id="btn" class="btn">Click me to launch AppB</button>
+      <script src="index.js"></script>
+    </div>
+  </body>
+</html>

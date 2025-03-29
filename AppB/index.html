@@ -13,5 +13,21 @@
       <input type="text" id="lname" name="lname" /><br /><br />
       <button type="submit" value="Submit">Submit</button>
     </form>
+    <div>
+      <p id="first-name"></p>
+      <p id="last-name"></p>
+    </div>
+    <script>
+      const form = document.querySelector("form");
+      const firstName = document.getElementById("fname");
+      const lastName = document.getElementById("lname");
+      const firstNameDisplay = document.getElementById("first-name");
+      const lastNameDisplay = document.getElementById("last-name");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        firstNameDisplay.textContent = firstName.value;
+        lastNameDisplay.textContent = lastName.value;
+      });
+    </script>
   </body>
 </html>

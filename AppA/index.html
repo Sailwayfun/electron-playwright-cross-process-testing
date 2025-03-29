@@ -9,6 +9,7 @@
   <script>
     const { spawn } = require("node:child_process");
     const path = require("node:path");
+    const { ipcRenderer } = require("electron");
 
     window.nodeRequire = require;
 
@@ -19,6 +20,9 @@
   <body>
     <div class="container">
       <button id="launch-b" class="btn">Click me to launch AppB</button>
+      <button id="launch-another-window" class="btn">
+        Click me to launch another window
+      </button>
       <script src="index.js"></script>
     </div>
   </body>

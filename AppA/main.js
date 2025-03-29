@@ -1,6 +1,6 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 
-function createWindow() {
+function createWindow(windowName = "index") {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -10,8 +10,12 @@ function createWindow() {
     },
   });
 
-  win.loadFile("index.html");
+  win.loadFile(`./${windowName}.html`);
 }
+
+ipcMain.on("launch-another-window", () => {
+  createWindow("another-window");
+});
 
 app.whenReady().then(createWindow);
 

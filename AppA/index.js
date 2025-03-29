@@ -1,4 +1,5 @@
 const btn = document.querySelector("#launch-b");
+const anotherWindowBtn = document.querySelector("#launch-another-window");
 
 btn.addEventListener("click", () => {
   console.log("click btn in AppA");
@@ -27,4 +28,13 @@ function launchAppB() {
   child.on("error", (err) => {
     console.error("Failed to start AppB:", err);
   });
+}
+
+anotherWindowBtn.addEventListener("click", () => {
+  console.log("click another window btn in AppA");
+  launchAnotherWindow();
+});
+
+function launchAnotherWindow() {
+  ipcRenderer.send("launch-another-window");
 }

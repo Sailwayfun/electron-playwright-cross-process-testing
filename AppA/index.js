@@ -1,4 +1,4 @@
-const btn = document.querySelector(".btn");
+const btn = document.querySelector("#launch-b");
 
 btn.addEventListener("click", () => {
   console.log("click btn in AppA");
@@ -14,7 +14,9 @@ function launchAppB() {
 
   console.log("Attempting to launch:", appBExePath);
 
-  const child = spawn(appBExePath, [], {
+  const AppBArgs = ["--remote-debugging-port=9223"];
+
+  const child = spawn(appBExePath, [AppBArgs], {
     stdio: "inherit",
   });
 

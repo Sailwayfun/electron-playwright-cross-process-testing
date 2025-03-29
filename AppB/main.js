@@ -13,4 +13,8 @@ function createWindow() {
   win.loadFile("index.html");
 }
 
+if (process.argv.includes('--remote-debugging-port=9223')) {
+  app.commandLine.appendSwitch('remote-debugging-port', '9223');
+}
+
 app.whenReady().then(createWindow);
